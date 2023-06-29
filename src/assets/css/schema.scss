@@ -1,0 +1,56 @@
+/* 模块: 容器 */
+@mixin baseBox($width: 100%, $height: 100%) {
+    width: $width;
+    height: $height;
+}
+@mixin styleBox($background, $padding: 0, $radius: 0){
+    background: $background;
+    padding: $padding;
+    border-radius: $radius;
+}
+@mixin createBox($width, $height, $background, $padding: 0, $radius: 0){
+    @include baseBox($width, $height);
+    @include styleBox($background, $padding, $radius);
+}
+@mixin placeBox($x: 0, $y: 0, $isTop: true, $isLeft: true) {
+    position: absolute;
+    @if $isTop {
+        top: $x;
+    } @else {
+        bottom: $x;
+    }
+    @if $isLeft {
+        left: $y;
+    } @else {
+        right: $y;
+    }
+}
+
+/* 模块: Flex */
+@mixin baseFlex($isColumn: false) {
+    display: flex;
+    align-items: center;
+    @if $isColumn {
+        flex-direction: column
+    }
+}
+@mixin centerFlex($isColumn: false) {
+    @include baseFlex($isColumn);
+    justify-content: center;
+} 
+@mixin BetFlex($isColumn: false) {
+    @include baseFlex($isColumn);
+    justify-content: space-between;
+}
+
+/* 类型: 字体 */
+@mixin baseFont($size, $color: #111111, $weight: 400) {
+    font-size: $size;
+    color: $color;
+    font-weight: $weight;
+}
+@mixin placeFont($height: 0) {
+    text-align: center;
+    line-height: $height;
+}
+

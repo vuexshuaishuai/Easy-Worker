@@ -1,0 +1,135 @@
+@import "../../assets/css/schema.scss";
+
+/* 模块: 需要添加车辆才会出现的部分 */
+.keyboard-header-container {
+    /* 模块: 头部 */
+    header {
+        @include BetFlex;
+        padding: 15px 0px 0 30px;   
+        margin-bottom: 20px;   
+    }  
+    //关闭按钮
+    .keyboard-close-icon {
+        @include baseFont(36px, #999999);
+        padding: 12px 22px;
+    }
+    
+    /* 模块: 车牌号输入框、车辆类型选择公共样式 */
+    .keyboard-control {
+        @include baseFlex;
+        padding: 0 30px;
+        margin-bottom: 30px;
+    }
+    //部分: Label
+    .keyboard-label {
+        @include baseFont(30px);
+        width: 70px;
+        margin-right: 24px;
+    }
+    //部分: 输入框
+    .keyboard-content {
+        flex: 1;
+        @include baseFont(30px, #CACACA);
+        @include styleBox(#FAFAFA, 19px 24px, 24px 0 0 24px);
+    }
+    //部分: 添加按钮
+    .keyboard-add-button {
+        @include createBox(188px, 84px, #1677FE, 0, 0 24px 24px 0);
+        @include baseFont(34px, white);
+        border: 1px solid #1677FE;
+    }
+    //部分: 类型选择
+    .keyboard-type {
+        flex: 1;
+        height: 64px;
+        @include baseFlex;
+        //单个类型
+        li {
+            flex: 1;
+            height: 100%;
+            @include placeFont(64px);
+            margin-right: 20px;
+            border-radius: 16px;
+            position: relative;
+            overflow: hidden;
+        }
+        >li:last-child {
+            margin: 0;
+            color: white;
+        }
+    }
+    //三角
+    .active-tripe {
+        @include baseBox(0, 0);
+        border-color: black transparent; /*上下颜色 左右颜色*/
+        border-width: 45px 45px 0 0;
+        border-style: solid;
+        @include placeBox;
+    }
+    //对勾
+    .type-active .van-icon{
+        color: white;
+        @include placeBox(2px, 4px);
+        font-size: 26px;
+    }
+}
+
+/* 模块: 省份选择 */
+.keyboard-provinces {
+    @include BetFlex;
+    flex-wrap: wrap;
+    padding: 0 30px;
+}
+//单个键
+.only-key {
+    @include baseBox(90px, 90px);
+    border: 1px solid #DDDDDD;
+    @include baseFont(32px, #111111);
+    @include placeFont(90px);
+    @include styleBox(white, 0, 8px);
+    margin-bottom: 20px;
+    &:active {
+        border-width: 5px;
+    }
+}
+//空白键 (缝隙)
+.empty-key {
+    @include baseBox(90px, 90px);
+    margin-bottom: 20px;
+}
+//删除键
+.delete-key {
+    @include baseBox(190px, 90px);
+    @include styleBox(white, 0, 8px);
+    border: 1px solid #DDDDDD;
+    @include centerFlex;
+    margin-bottom: 20px;
+    &:active {
+        border-width: 5px;
+    }
+    img{
+        @include baseBox(46px, 32px);
+    }
+}
+
+/* 模块: 数字 & 字母选择 */
+.keyboard-number-letter {
+    padding: 0 30px;
+}
+
+/* 模块: 数字选择 */
+.keyboard-number {
+    @include BetFlex;
+    //数字键: 需要稍微改下宽高
+    .only-key {
+        @include baseBox(60px, 80px);
+        @include placeFont(80px);
+        margin-right: 10px;
+    }
+}
+
+/* 模块: 字母选择 */
+.keyboard-letter {
+    @include BetFlex;
+    flex-wrap: wrap;
+}
