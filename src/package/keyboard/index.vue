@@ -87,13 +87,15 @@
                 </div>
             </div>
         </div>
-
+        <!-- 安全区 -->
+        <SafeArea></SafeArea>
 
     </van-popup>
 </template>
 
 <script lang="ts" setup>
     import { ref, toRefs, readonly } from "vue";
+    import SafeArea from "@/package/safeArea/index.vue";
     import { vehicleType } from "./model";
 
     const props = defineProps({
